@@ -36,7 +36,7 @@ You can install the `@sugar-ai/copilot-one-sdk` package via npm:
 
 ### Installation
 ````bash
-npm install sdk
+npm install @sugar-ai/copilot-one-sdk
 ````
 
 ### Add to your React App
@@ -120,6 +120,3 @@ const TodoApp = () => {
 Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
 Writing a good guide requires thinking about what your users are trying to do.
 
-## Further reading
-
-- Read [about how-to guides](https://diataxis.fr/how-to-guides/) in the Diátaxis framework
