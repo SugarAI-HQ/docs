@@ -17,7 +17,7 @@ export default defineConfig({
         github: "https://github.com/SugarAI-HQ/docs",
         discord: "https://discord.com/invite/WRu3KXqz",
       },
-      // favicon: '/public/images/sugar/favicon.png',
+      favicon: "/public/images/sugar-ai/favicon.png",
       editLink: {
         baseUrl: "https://github.com/SugarAI-HQ/docs/edit/main/",
       },
