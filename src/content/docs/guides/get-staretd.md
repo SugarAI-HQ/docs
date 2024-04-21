@@ -29,51 +29,56 @@ Before using this package, ensure you have the following:
 - An existing React application
 - Sugar AI [Account](https://play.sugarcaneai.dev) or [Self Hosted](https://github.com/sugarcane-ai/sugarcane-ai/)
 
-
 ## Install
+
 You can install the `@sugar-ai/copilot-one-sdk` package via npm:
 
-
 ### Installation
-````bash
+
+```bash
 npm install @sugar-ai/copilot-one-sdk
-````
+```
 
 ### Add to your React App
 
-In your main file. src/App.tsx 
-```js
-import { useCopilot, CopilotConfigType, CopilotProvider, VoiceToSkillComponent } from '@sugar-ai/copilot-one-sdk';
+In your main file. src/App.tsx
 
+```js
+import {
+  useCopilot,
+  CopilotConfigType,
+  CopilotProvider,
+  VoiceAssistant,
+} from "@sugar-ai/copilot-one-sdk";
 
 const copilotConfig: CopilotConfigType = {
-  copilotId: '<copilotId>',
+  copilotId: "<copilotId>",
   server: {
-    endpoint: 'http://sugarai.dev:3000/api',
-    token: '<token>',
+    endpoint: "http://sugarai.dev:3000/api",
+    token: "<token>",
   },
 
   ai: {
-    defaultPromptTemmplate: 'hi/skills/todo-skill/0.0.5',
+    defaultPromptTemmplate: "hi/skills/todo-skill/0.0.5",
     defaultPromptVariables: {
-      $ROLE: 'Boss',
+      $ROLE: "Boss",
     },
-    successResponse: 'Task is completed',
-    failureResponse: 'I am not able to do this',
+    successResponse: "Task is completed",
+    failureResponse: "I am not able to do this",
   },
-}
+};
 ```
 
-In a todo App, Track Live Screen context for current user using `useStateCopilot`
+In a todo App, Track Live Screen context for current user using `useStateEmbedding`
 
 ```js
 
 const TodoApp = () => {
 
-const { useStateCopilot, registerSkill, unregisterSkill } = useCopilot(); // Add
+const { useStateEmbedding, registerAction, unregisterAction } = useCopilot(); // Add
 
-// const [todos, setTodos] = useState([]); 
-const [todos, setTodos] = useStateCopilot([], 'todoApp', 'todos'); // Switch
+// const [todos, setTodos] = useState([]);
+const [todos, setTodos] = useStateEmbedding([], 'todoApp', 'todos'); // Switch
 
 ...
 
@@ -88,13 +93,13 @@ const TodoApp = () => {
 
   ...
 
-  // Functionalies 
+  // Functionalies
   const addTodo = (task) => {...}};
   const deleteTodo = (task) => {...};
   const markTodoAsDoneById = function (todoId: number) {...};
 
   // Register addTodo function
-  registerSkill(
+  registerAction(
     'addTodo',
     {
       name: 'addTodo',
@@ -119,4 +124,3 @@ const TodoApp = () => {
 
 Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
 Writing a good guide requires thinking about what your users are trying to do.
-
