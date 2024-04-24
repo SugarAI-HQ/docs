@@ -51,15 +51,13 @@ Get Started
 
 - Quick Start
 - Introduction
+- Architecture
 
 Components
 - Voice To Action
 - Text to Action
 - Screen Embedding
 - Text API Interface
-
-Architecture
-- 
 
 
 UI/UX Agents
