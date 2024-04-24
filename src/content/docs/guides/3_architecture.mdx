@@ -1,0 +1,39 @@
+---
+title: 🛠️ Architecture
+description: Architecture of AI Assistant
+---
+
+import { Image } from 'astro:assets';
+import full from '../../../assets/architecture/full.png';
+import overiview from '../../../assets/architecture/overview.png';
+import backend from '../../../assets/architecture/backend.png';
+import sdk from '../../../assets/architecture/sdk.png';
+
+---
+
+
+<Image src={overiview} alt="A description of my image." />
+
+## Frontend
+
+The  used to create embeddings which is used during the LLM inferences.
+
+In an existing frontend application, a Copilot One UI SDK is added enable the AI assistant capabilities.
+
+This SKD will only talk to the Copilot One Back APIs.
+
+
+
+
+<Image src={sdk} alt="A description of my image." />
+
+
+## Backend
+
+Copilot One Backend is dependent on App APIs and LLM APIs. Backend has a lot of components
+
+
+<Image src={backend} alt="Backend Architecture" />
+
+
+
