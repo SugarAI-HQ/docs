@@ -14,7 +14,7 @@ Add this to your head tag
 ```html
 <script
   type="module"
-  src="https://cdn.jsdelivr.net/npm/@sugar-ai/copilot-one-js@^0.0.19/dist/js/copilot-one.min.js"
+  src="https://cdn.jsdelivr.net/npm/@sugar-ai/copilot-one-js@latest/dist/js/copilot-one.min.js"
   async
 ></script>
 ```
