@@ -41,3 +41,37 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+
+
+
+Topcs
+
+Get Started
+
+- Quick Start
+- Introduction
+- Architecture
+
+Components
+- Voice To Action
+- Text to Action
+- Screen Embedding
+- Text API Interface
+
+
+UI/UX Agents
+  - Navigation Agent 
+  - Form Agent
+  
+Assistants
+    - Voice Assistant
+    - Text Assistant
+
+
+Usecases
+
+
+Deployment 
+- Self hosting
+

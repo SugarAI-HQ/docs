@@ -1,9 +1,9 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
-import mdx from "@astrojs/mdx";
-import expressiveCode from "astro-expressive-code";
-import remarkToc from "remark-toc";
-import rehypeMinifyHtml from "remark-rehype";
+// import mdx from "@astrojs/mdx";
+// import expressiveCode from "astro-expressive-code";
+// import remarkToc from "remark-toc";
+// import rehypeMinifyHtml from "remark-rehype";
 
 const site = "https://docs.sugarai.dev/";
 
@@ -48,7 +48,7 @@ export default defineConfig({
       ],
       sidebar: [
         {
-          label: "Introduction",
+          label: "Get Started",
           autogenerate: {
             directory: "guides",
           },
@@ -57,12 +57,12 @@ export default defineConfig({
           //     { label: "Get Started", link: "/guides/get-started/" },
           //   ],
         },
-        // {
-        //   label: "Key Features",
-        //   autogenerate: {
-        //     directory: "key-features"
-        //   }
-        // }
+        {
+          label: "Key Features",
+          autogenerate: {
+            directory: "key-features",
+          },
+        },
       ],
     }),
     // expressiveCode(),
