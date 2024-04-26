@@ -63,6 +63,12 @@ export default defineConfig({
             directory: "key-features",
           },
         },
+        {
+          label: "Integrations",
+          autogenerate: {
+            directory: "integrations",
+          },
+        },
       ],
     }),
     // expressiveCode(),

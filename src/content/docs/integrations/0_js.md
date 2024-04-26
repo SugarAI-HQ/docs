@@ -1,0 +1,86 @@
+---
+title: Javascript
+description: Add Native AI Assistant to your Website in few minutes
+---
+
+Supercharge your existing Website with a Siri-like AI Assistant.
+
+### Install Package
+
+Install the package in to your Website
+
+Add this to your head tag
+
+```bash
+<head>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@sugar-ai/copilot-one-js@^0.0.19/dist/js/copilot-one.min.js" async></script>
+
+  <script>
+    window.saiData = window.saiData || [];
+
+    function saiAsync() {
+      saiData.push(arguments);
+    }
+
+    # Add config
+    saiAsync("config", {
+      copilotId: "<copilotId>",
+      server: {
+        endpoint: "https://play.sugarcaneai.dev/api",
+        token: "<token>",
+      },
+
+      ...
+      ...
+      ...
+
+    })
+  </script>
+</head>
+```
+
+Add this inside your HTML body
+
+```html
+<!-- Adding copilot one container to your webiste  -->
+<a id="copilot-one" href="https://sugarai.dev"></a>
+```
+
+config the copilot.
+
+```js
+saiAsync("config", {
+  copilotId: "<copilotId>",
+  server: {
+    endpoint: "https://play.sugarcaneai.dev/api",
+    token: "<token>",
+  },
+
+  ...
+  ...
+  ...
+
+});
+```
+
+Additionally register your functions. Follow the example below of `addTodo` function
+
+```js
+saiAsync(
+  "register",
+  "addTodo",
+  {
+    name: "addTodo",
+    description: "Add a new todo",
+    parameters: [
+      {
+        name: "task",
+        type: "string",
+        description: "Task description",
+        required: true,
+      },
+    ],
+  },
+  addTodo
+);
+```

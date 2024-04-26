@@ -1,7 +1,6 @@
 ---
 title: ⚡ Quick Start
 description: Add Native AI Assistant to your React App in few minutes
-
 ---
 
 Supercharge your existing Web/React App with a Siri-like AI Assistant.
@@ -30,23 +29,23 @@ Before using this package, ensure you have the following:
 - An existing React application
 - Sugar AI [Account](https://play.sugarcaneai.dev) or [Self Hosted](https://github.com/SugarAI-HQ/CopilotOne/)
 
-
 ## Install
+
 You can install the `@sugar-ai/copilot-one-sdk` package via npm:
 
-
-### Instal Package
+### Install Package
 
 Install the package in to your React Application
 
-````bash
+```bash
 npm install @sugar-ai/copilot-one-sdk@latest
-````
+```
 
-### Create Copilot 
+### Create Copilot
+
 Login/Sigup [Account](https://play.sugarcaneai.dev) or [Self Hosted](https://github.com/SugarAI-HQ/CopilotOne/)
 
-Create a Copilot and get the  `copilotId` and `token`
+Create a Copilot and get the `copilotId` and `token`
 
 ### Add to your React App
 
@@ -85,16 +84,13 @@ const copilotConfig: CopilotConfigType = {
 Add the Voice assistant to the pages you want to. If you want to enable it on all the pages, add it to common section.
 
 ```js
-      <VoiceAssistant 
-        promptVariables={{ $NAME: 'Sugar' }} 
-        position={'botttm-center'}
-      >
-        
-      </VoiceAssistant>
+<VoiceAssistant
+  promptVariables={{ $NAME: "Sugar" }}
+  position={"botttm-center"}
+></VoiceAssistant>
 ```
 
 This will show a mic button on the bottom center of the page. Test it out if you talk with it. This Assistant have no registered actions
-
 
 ### Register Actions
 
@@ -136,15 +132,13 @@ const TodoApp = () => {
 
 After this, ask Assistant to perform the action by saying `Remind to get a haircut`. In you app you can use equivalent instruction.
 
+### Active Screen Context
 
-### Active Screen Context 
+To make AI Assistant aware of the current screen content, use `useStateEmbedding` to track the current screen content.
 
-To make AI Assistant aware of the current screen content, use `useStateEmbedding` to track the current screen content. 
-
-`useStateEmbedding` is build on too of `useState` hook. This automatically create an embedding in db for the current user with a scope. 
+`useStateEmbedding` is build on too of `useState` hook. This automatically create an embedding in db for the current user with a scope.
 
 you can easily replace your `useState` hook with `useStateEmbedding` and pass the scope as the second argument. This will define the scope for created embedding.
-
 
 Check out the todo App exmaple below
 `useStateEmbedding`
@@ -165,10 +159,5 @@ const [todos, setTodos] = useStateEmbedding([], {...scope}); // Switch
 
 ```
 
-
-
-
-
 Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
 Writing a good guide requires thinking about what your users are trying to do.
-

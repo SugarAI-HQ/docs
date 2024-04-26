@@ -15,33 +15,32 @@ hero:
     file: ../../assets/houston.webp
   actions:
     - text: Get Started
-      link: /guides/introduction/
+      link: /guides/1_introduction/
       icon: right-arrow
       variant: primary
     # - text: Read the Starlight docs
     #   link: https://starlight.astro.build
     #   icon: external
 ---
-import { Icon } from '@astrojs/starlight/components';
-import { Card, CardGrid } from '@astrojs/starlight/components';
 
-
+import { Icon } from "@astrojs/starlight/components";
+import { Card, CardGrid } from "@astrojs/starlight/components";
 
 ## Key Features
 
 <CardGrid stagger>
-	<Card title="Voice To Action" icon="seti:audio">
-		Perform `UX actions` based on `voice input`.
-	</Card>
-	<Card title="Active Screen Context" icon="puzzle">
-		Auto `split` Active screen data and `create embeddings` which is avaiable for `RAG` during LLM inferences.
-	</Card>
-	<Card title="Text To Action" icon="translate">
-		Perform `UX actions` based on `text input`.
-	</Card>
-	<Card title="Text API Gateway" icon="farcaster">
-		Auto Transform existing APIs to support a human language interface for both requests and responses.
-	</Card>
+  <Card title="Voice To Action" icon="seti:audio">
+    Perform `UX actions` based on `voice input`.
+  </Card>
+  <Card title="Active Screen Context" icon="puzzle">
+    Auto `split` Active screen data and `create embeddings` which is avaiable
+    for `RAG` during LLM inferences.
+  </Card>
+  <Card title="Text To Action" icon="translate">
+    Perform `UX actions` based on `text input`.
+  </Card>
+  <Card title="Text API Gateway" icon="farcaster">
+    Auto Transform existing APIs to support a human language interface for both
+    requests and responses.
+  </Card>
 </CardGrid>
-
-
