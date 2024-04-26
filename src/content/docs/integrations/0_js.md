@@ -11,32 +11,12 @@ Install the package in to your Website
 
 Add this to your head tag
 
-```bash
-<head>
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@sugar-ai/copilot-one-js@^0.0.19/dist/js/copilot-one.min.js" async></script>
-
-  <script>
-    window.saiData = window.saiData || [];
-
-    function saiAsync() {
-      saiData.push(arguments);
-    }
-
-    # Add config
-    saiAsync("config", {
-      copilotId: "<copilotId>",
-      server: {
-        endpoint: "https://play.sugarcaneai.dev/api",
-        token: "<token>",
-      },
-
-      ...
-      ...
-      ...
-
-    })
-  </script>
-</head>
+```html
+<script
+  type="module"
+  src="https://cdn.jsdelivr.net/npm/@sugar-ai/copilot-one-js@^0.0.19/dist/js/copilot-one.min.js"
+  async
+></script>
 ```
 
 Add this inside your HTML body
@@ -44,6 +24,27 @@ Add this inside your HTML body
 ```html
 <!-- Adding copilot one container to your webiste  -->
 <a id="copilot-one" href="https://sugarai.dev"></a>
+<script>
+  window.saiData = window.saiData || [];
+
+  function saiAsync() {
+    saiData.push(arguments);
+  }
+
+  # Add config
+  saiAsync("config", {
+    copilotId: "<copilotId>",
+    server: {
+      endpoint: "https://play.sugarcaneai.dev/api",
+      token: "<token>",
+    },
+
+    ...
+    ...
+    ...
+
+  })
+</script>
 ```
 
 config the copilot.
