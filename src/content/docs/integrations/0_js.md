@@ -32,6 +32,7 @@ Add this inside your HTML body
   }
 
   # Add config
+  // Get this config from your Copilot
   saiAsync("config", {
     copilotId: "<copilotId>",
     server: {
@@ -42,26 +43,8 @@ Add this inside your HTML body
     ...
     ...
     ...
-
   })
 </script>
-```
-
-config the copilot.
-
-```js
-saiAsync("config", {
-  copilotId: "<copilotId>",
-  server: {
-    endpoint: "https://play.sugarcaneai.dev/api",
-    token: "<token>",
-  },
-
-  ...
-  ...
-  ...
-
-});
 ```
 
 Additionally register your functions. Follow the example below of `addTodo` function
