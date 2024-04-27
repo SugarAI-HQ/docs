@@ -1,4 +1,16 @@
 ---
 title: Text To Action
-description: A reference page in my new Starlight docs site.
+description: How does text to action work ?
 ---
+
+import { Image } from 'astro:assets';
+import tta from '../../../assets/features/text-to-action.png';
+
+
+A user can write a message to the AI assistant to trigger registered actions on the application. 
+
+
+For example, in a Todo App, user can say `Remind to get a hair cut`, and it will add `haircut` to the todo list
+
+
+<Image src={tta} style={{ display: "block", margin: "auto" }} height={800} alt="voice to action image" />
