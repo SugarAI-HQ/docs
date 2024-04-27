@@ -1,10 +1,10 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 // import mdx from "@astrojs/mdx";
-// import expressiveCode from "astro-expressive-code";
+import expressiveCode from "astro-expressive-code";
 // import remarkToc from "remark-toc";
 // import rehypeMinifyHtml from "remark-rehype";
-
+import mdx from "@astrojs/mdx";
 const site = "https://docs.sugarai.dev/";
 
 // https://astro.build/config
