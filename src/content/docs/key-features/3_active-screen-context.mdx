@@ -1,0 +1,27 @@
+---
+title: Active Screen Context
+description: Transform existing APIs to support a human language interface for both requests and responses.
+---
+
+
+Since user primary interface is screen and for any query user is asking have a context of active screen. AI is not automcatically aware of current screen context. 
+
+
+To provide contextual responses, screen data is tracked on change and embeddings are created from screen chunks. These embeddings are saved to a database tagged with current screen scope.
+
+
+## Creation Flow 
+
+- On screen data change detected
+- Track and split the screen data in to smaller chunks 
+- create embeddings on the data
+- Save to embedding database with current `scope`
+
+## Lookup Flow
+
+- When user asks a query, 
+- create a embedding on the query
+- lookup the matching embedding in the `scope`
+- and inject if the prompt, if the current prompt is having variable `{$VIEW_CONTEXT}`
+
+
