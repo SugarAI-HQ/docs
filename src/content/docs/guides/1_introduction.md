@@ -17,10 +17,22 @@ Supercharge your existing Web/React App with a Siri-like AI Assistant.
 
 ## Supported Voice-enabled UX Agents
 
-1. **UI Agent**: Enables hands-free capability to perform existing UI tasks and workflows.
-2. **Navigation Agent**: Assists users in navigating to the right page, section, or settings.
-3. **Form Agent**: Simplifies form filling by transforming API from JSON/XML interface to a human language interface.
+1. **Navigation Agent**: Assists users in navigating to the right page, section, or settings.
+2. **Form Agent**: Simplifies form filling by transforming API from JSON/XML interface to a human language interface.
+3. **Workflow Agents**: Enables hands-free capability to perform existing UI/UX tasks and workflows.
 
 These agents focuses on reducing learning curve for user and enalbes handsfree expereince for content discovery, feature discovery, user onboarding and form filling.
 
-Check out Travel Product built using this sdk: https://youtu.be/t2e0CThWZUE
+## Demo Video
+
+[![Copilot One Demo Video](https://img.youtube.com/vi/gYynr1xRLeU/0.jpg)](https://www.youtube.com/watch?v=gYynr1xRLeU)
+
+
+## What future of AI Assistants looks Like ?
+Goal is to create an open protocol for AI Assistants, Agents & Actions. Checkout Future of AI Assistants using this sdk.
+
+Check out future of Travel built using this sdk
+
+[![Future of AI Assistants with Copilot One](https://img.youtube.com/vi/t2e0CThWZUE/0.jpg)](https://www.youtube.com/watch?v=t2e0CThWZUE)
+
+
