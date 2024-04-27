@@ -9,8 +9,48 @@ Since user primary interface is screen and for any query user is asking have a c
 
 To provide contextual responses, screen data is tracked on change and embeddings are created from screen chunks. These embeddings are saved to a database tagged with current screen scope.
 
+### Example
 
-## Creation Flow 
+Lets understand wih todo example. 
+
+A todo app have 5 todos created and it shown on the screen. 
+- haircut 
+- grocery shopping
+- plan for himalayan trek
+- pay electricity bill
+- call parents
+
+The user looked at the screen and said, `I got my haircut, mark it as done`
+
+Since prompt have no context of the current screen, AI will not be able to identify the `haircut` todo item. 
+
+Also to invoke `markTodoAsDone` action need `todoId`
+```js
+    // const [todos, setTodos] = useState([])
+    const [todos, setTodos] = useStateEmbedding([], {
+        scope1: "todoApp",
+        scope2: "todos",
+    });
+
+
+    const markTodoAsDone = function nameFunc(todoId: number) {
+    setTodos(
+      (todos as any).map((todo: TodoSchemaType) => {
+        if (todo.id == todoId) {
+          return { ...todo, completed: true };
+        }
+        return todo;
+      })
+    );
+  };
+
+```
+
+With active screen context feature, the `todos` json object is tracked on change and embeddings are created from screen chunks and saved to database tagged with current screen scope.
+
+
+
+## Embedding Creation Flow 
 
 - On screen data change detected
 - Track and split the screen data in to smaller chunks 
@@ -23,5 +63,3 @@ To provide contextual responses, screen data is tracked on change and embeddings
 - create a embedding on the query
 - lookup the matching embedding in the `scope`
 - and inject if the prompt, if the current prompt is having variable `{$VIEW_CONTEXT}`
-
-
