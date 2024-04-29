@@ -3,197 +3,205 @@ title: React
 description: Add Native AI Assistant to your React App in few minutes
 ---
 
-import { Tabs, TabItem } from '@astrojs/starlight/components';
-import { Steps } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import { Steps } from "@astrojs/starlight/components";
 
 ---
-Add Siri like Native AI Assistants to React App
 
+Add Siri like Native AI Assistants to React App
 
 <Steps>
 
-1. #### Prerequisites
+1.  #### Prerequisites
 
-	Before using this package, ensure you have the following:
+    Before using this package, ensure you have the following:
 
-	- An existing React application
-	- Sugar AI [Account](https://play.sugarcaneai.dev) or [Self Hosted](https://github.com/SugarAI-HQ/CopilotOne/)
+    - An existing React application
+    - Sugar AI [Account](https://play.sugarcaneai.dev) or [Self Hosted](https://github.com/SugarAI-HQ/CopilotOne/)
 
+2.  #### Install Pacakge
 
-2. ####  Install Pacakge
+    Install the latest package in you react project
 
-	Install the latest package in you react project
+    <Tabs>
 
-	<Tabs>
-		<TabItem label="npm">
-		```bash
-		npm install @sugar-ai/copilot-one-js@latest
-		```
-		</TabItem>
+    <TabItem label="npm">
+      ```bash
+      npm install @sugar-ai/copilot-one-js@latest
+      ```
 
-		<TabItem label="yarn">
-			
-		```bash
-		yarn add @sugar-ai/copilot-one-js@latest
-		```
-		</TabItem>
+      </TabItem>
 
-		<TabItem label="pnpm">
-		```bash
-		pnpm add @sugar-ai/copilot-one-js@latest
-		```
-		</TabItem>
-	</Tabs>
+      <TabItem label="yarn">
 
-3. #### Create Copilot 
-	
-	Login/Sigup [Account](https://play.sugarcaneai.dev) or [Self Hosted](https://github.com/SugarAI-HQ/CopilotOne/)
+        ```bash
+        yarn add @sugar-ai/copilot-one-js@latest
+        ```
+      </TabItem>
 
-	Create a Copilot and get the  `copilotId` and `token`
-	
+      <TabItem label="pnpm">
+        ```bash
+        pnpm add @sugar-ai/copilot-one-js@latest
+        ```
+      </TabItem>
 
-4. #### Add to your main file `src/App.tsx`
+    </Tabs>
 
+3.  #### Create Copilot
 
-	```jsx
-	import { useCopilot, CopilotConfigType, CopilotProvider, VoiceAssistant } from '@sugar-ai/copilot-one-js';
+    Login/Sigup [Account](https://play.sugarcaneai.dev) or [Self Hosted](https://github.com/SugarAI-HQ/CopilotOne/)
 
+    Create a Copilot and get the `copilotId` and `token`
 
-	const copilotConfig: CopilotConfigType = {
-	copilotId: '<copilotId>',
-	server: {
-		endpoint: 'http://play.sugarcaneai.dev/api',
-		token: '<token>',
-	},
+4.  #### Add to your main file `src/App.tsx`
 
-	ai: {
-		defaultPromptTemplate: '<prompt template>',
-		defaultPromptVariables: {
-		$NAME: 'Sugar',
-		},
-		successResponse: 'Task is completed',
-		failureResponse: 'I am not able to do this'
-	},
-	}
+    ```jsx
+    import {
+      useCopilot,
+      CopilotConfigType,
+      CopilotProvider,
+      VoiceAssistant,
+      TextAssistant,
+    } from "@sugar-ai/copilot-one-js";
 
-	```
+    const copilotConfig: CopilotConfigType = {
+      copilotId: "<copilotId>",
+      server: {
+        endpoint: "http://play.sugarcaneai.dev/api",
+        token: "<token>",
+      },
 
-5. ####  Wrap your  App `src/App.tsx`
-	Take this example of `Todo app`
-	
-	```jsx
-	<CopilotProvider config={copilotConfig}>
-		<TodoApp />
-	</CopilotProvider>
-	```
+      ai: {
+        defaultPromptTemplate: "<prompt template>",
+        defaultPromptVariables: {
+          $NAME: "Sugar",
+        },
+        successResponse: "Task is completed",
+        failureResponse: "I am not able to do this",
+      },
+    };
+    ```
 
-6. #### Add Voice Assistant
-	
-	Add the Voice assistant to the pages you want to. If you want to enable it on all the pages, add it to common section.
+5.  #### Wrap your App `src/App.tsx`
 
-	```js
-	<VoiceAssistant 
-		promptVariables={{ $NAME: 'Sugar' }} 
-		position={'botttm-center'}
-	>
-		
-	</VoiceAssistant>
-	```
+    Take this example of `Todo app`
 
-	This will show a mic button on the bottom center of the page. Test it out if you talk with it. This Assistant have no registered actions
+    ```jsx
+    <CopilotProvider config={copilotConfig}>
+      <TodoApp />
+    </CopilotProvider>
+    ```
 
+6.  #### Add Assistants
 
+        <Tabs>
+        	<TabItem label="Voice Assistant">
+        		 Add the Voice assistant to the pages you want to. If you want to enable it on all the pages, add it to common section.
+        	```js
 
-7. #### Register Actions
+        	<VoiceAssistant
+        		promptVariables={{ $NAME: "Sugar" }}
+        		position={"botttm-center"}
+        	></VoiceAssistant>
+        		```
+        				This will show a mic button on the bottom center of the page. Test it out if you talk with it. This Assistant have no registered actions
+        </TabItem>
 
-	To invoke actions by AI Assistant, register methods using `registerAction` with its name, definition and callback.
+        	<TabItem label="Text Assistant">
 
-	```js
-	const TodoApp = () => {
+        	 Add the Text assistant to the pages you want to. If you want to enable it on all the pages, add it to common section.
+        	```js
 
-	...
+        	<TextAssistant
+        		promptVariables={{ $NAME: "Sugar" }}
+        		position={"botttm-center"}
+        	></TextAssistant>
+        		```
+        				This will show a Chat button on the bottom center of the page. Test it out if you talk with it. This Assistant have no registered actions
+        	</TabItem>
 
-	// Functionalies
-	const addTodo = (task) => {...}};
-	const deleteTodo = (task) => {...};
-	const markTodoAsDoneById = function (todoId: number) {...};
+    </Tabs>
 
-	// Register addTodo function
-	registerAction(
-		'addTodo',
-		{
-		name: 'addTodo',
-		description: 'Add a new todo',
-		parameters: [
-			{
-			name: 'task',
-			type: 'string',
-			description: 'Task description',
-			required: true,
-			}
-		],
-		},
-		addTodo,
-	);
+7.  #### Register Actions
 
-	...
+    To invoke actions by AI Assistant, register methods using `registerAction` with its name, definition and callback.
 
-	}
+    ```js
+    const TodoApp = () => {
 
-	```
-	
+    ...
 
-	After this, ask Assistant to perform the action by saying `Remind to get a haircut`. In you app you can use equivalent instruction.
+    // Functionalies
+    const addTodo = (task) => {...}};
+    const deleteTodo = (task) => {...};
+    const markTodoAsDoneById = function (todoId: number) {...};
 
-8. #### Active Screen Context (Optional)
+    // Register addTodo function
+    registerAction(
+    	'addTodo',
+    	{
+    	name: 'addTodo',
+    	description: 'Add a new todo',
+    	parameters: [
+    		{
+    		name: 'task',
+    		type: 'string',
+    		description: 'Task description',
+    		required: true,
+    		}
+    	],
+    	},
+    	addTodo,
+    );
 
-	To make AI Assistant aware of the current screen content, use `useStateEmbedding` to track the current screen content. 
+    ...
 
-	`useStateEmbedding` is build on too of `useState` hook. This automatically create an embedding in db for the current user with a scope. 
+    }
 
-	you can easily replace your `useState` hook with `useStateEmbedding` and pass the scope as the second argument. This will define the scope for created embedding.
+    ```
 
+    After this, ask Assistant to perform the action by saying `Remind to get a haircut`. In you app you can use equivalent instruction.
 
-	Check out the todo App exmaple below
-	`useStateEmbedding`
+8.  #### Active Screen Context (Optional)
 
-	```js
+    To make AI Assistant aware of the current screen content, use `useStateEmbedding` to track the current screen content.
 
-	const TodoApp = () => {
+    `useStateEmbedding` is build on too of `useState` hook. This automatically create an embedding in db for the current user with a scope.
 
-	const { useStateEmbedding, registerAction, unregisterAction } = useCopilot(); // Add
-	const scope = {scope1: 'todoApp', scope2:  'todos'}
+    you can easily replace your `useState` hook with `useStateEmbedding` and pass the scope as the second argument. This will define the scope for created embedding.
 
-	// const [todos, setTodos] = useState([]);
-	const [todos, setTodos] = useStateEmbedding([], {...scope}); // Switch
+    Check out the todo App exmaple below
+    `useStateEmbedding`
 
-	...
+    ```js
 
-	}
+    const TodoApp = () => {
 
-	```
+    const { useStateEmbedding, registerAction, unregisterAction } = useCopilot(); // Add
+    const scope = {scope1: 'todoApp', scope2:  'todos'}
 
+    // const [todos, setTodos] = useState([]);
+    const [todos, setTodos] = useStateEmbedding([], {...scope}); // Switch
 
-	
-	Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
-	Writing a good guide requires thinking about what your users are trying to do.
+    ...
 
+    }
 
-9. #### Test The AI Assistant on your App
+    ```
 
-	Go ahead and press the Mic button shown in the Voice Assistant component to interact with the AI Assistant. 
+    Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
+    Writing a good guide requires thinking about what your users are trying to do.
 
-	You should be able to invoke registered actions like "Add a todo item".
+9.  #### Test The AI Assistant on your App
 
+    Go ahead and press the Mic button shown in the Voice Assistant component to interact with the AI Assistant.
 
-10. #### Refine Prompt 
-	Go to Copilot > Select Copilot > Linked Packages 
-	
-	Update, Version, Test & Deploy the prompt
+    You should be able to invoke registered actions like "Add a todo item".
 
+10. #### Refine Prompt
 
+    Go to Copilot > Select Copilot > Linked Packages
+
+    Update, Version, Test & Deploy the prompt
 
 </Steps>
-
-
-
