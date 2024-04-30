@@ -1,5 +1,6 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
+
 // import mdx from "@astrojs/mdx";
 import expressiveCode from "astro-expressive-code";
 // import remarkToc from "remark-toc";
@@ -45,6 +46,21 @@ export default defineConfig({
             content: site + "/images/sugar-ai/logo-transparent.png",
           },
         },
+        {
+          tag: "script",
+          attrs: {
+            src: "https://www.googletagmanager.com/gtag/js?id=G-YZK0C1NR0Y",
+            async: true,
+          },
+        },
+        {
+          tag: "script",
+          content: `window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-YZK0C1NR0Y');`,
+        },
       ],
       sidebar: [
         {
@@ -89,6 +105,11 @@ export default defineConfig({
     //     footnoteLabel: "Footnotes",
     //   },
     //   gfm: false,
+    // }),
+    // partytown({
+    //   config: {
+    //     forward: ["dataLayer.push"],
+    //   },
     // }),
   ],
 });
