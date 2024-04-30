@@ -4,17 +4,17 @@ description: Transform existing APIs to support a human language interface for b
 ---
 
 
-Since user primary interface is screen and for any query user is asking have a context of active screen. AI is not automcatically aware of current screen context. 
+Since user primary interface is screen and for any query user is asking have a context of active screen. AI is not automcatically aware of current screen context.
 
 
 To provide contextual responses, screen data is tracked on change and embeddings are created from screen chunks. These embeddings are saved to a database tagged with current screen scope.
 
 ### Example
 
-Lets understand wih todo example. 
+Lets understand wih todo example.
 
-A todo app have 5 todos created and it shown on the screen. 
-- haircut 
+A todo app have 5 todos created and it shown on the screen.
+- haircut
 - grocery shopping
 - plan for himalayan trek
 - pay electricity bill
@@ -22,15 +22,14 @@ A todo app have 5 todos created and it shown on the screen.
 
 The user looked at the screen and said, `I got my haircut, mark it as done`
 
-Since prompt have no context of the current screen, AI will not be able to identify the `haircut` todo item. 
+Since prompt have no context of the current screen, AI will not be able to identify the `haircut` todo item.
 
 Also to invoke `markTodoAsDone` action need `todoId`
 ```js
     // const [todos, setTodos] = useState([])
-    const [todos, setTodos] = useStateEmbedding([], {
-        scope1: "todoApp",
-        scope2: "todos",
-    });
+    const scope = {scope1: 'todoApp', scope2:  'todos'}
+
+    const [todos, setTodos] = useStateEmbedding([], {...scope});
 
 
     const markTodoAsDone = function nameFunc(todoId: number) {
@@ -50,16 +49,16 @@ With active screen context feature, the `todos` json object is tracked on change
 
 
 
-## Embedding Creation Flow 
+## Embedding Creation Flow
 
 - On screen data change detected
-- Track and split the screen data in to smaller chunks 
+- Track and split the screen data in to smaller chunks
 - create embeddings on the data
 - Save to embedding database with current `scope`
 
 ## Lookup Flow
 
-- When user asks a query, 
+- When user asks a query,
 - create a embedding on the query
 - lookup the matching embedding in the `scope`
 - and inject if the prompt, if the current prompt is having variable `{$VIEW_CONTEXT}`
