@@ -1,0 +1,36 @@
+---
+title: Docker
+description: Self deploy Copilot One in Docker
+
+---
+
+
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import { Steps } from "@astrojs/starlight/components";
+
+
+
+Self deploy Copilot One in Docker
+
+<Steps>
+
+
+
+1.  ##### Copy Env file
+
+     ```github
+    curl -o .env https://raw.githubusercontent.com/SugarAI-HQ/CopilotOne/develop/apps/factory/.env.example
+    ```
+
+
+
+3.  ##### Run using Docker directly
+
+    ```github
+    docker run -it -p 80:80 --env-file .env sugarcaneai/factory
+    ```
+
+4. The service is now running and listening on port 80
+
+
+</Steps>

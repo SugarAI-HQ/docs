@@ -69,6 +69,12 @@ export default defineConfig({
             directory: "integrations",
           },
         },
+        {
+          label: "Deployment",
+          autogenerate: {
+            directory: "deployment",
+          },
+        },
       ],
     }),
     // expressiveCode(),
