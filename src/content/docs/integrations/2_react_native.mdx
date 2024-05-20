@@ -95,19 +95,19 @@ Add Siri like Native AI Assistant to React Native App
 6.  #### Add Assistants
 
         <Tabs>
-        	<TabItem label="Text Assistant">
+        	<TabItem label="Voice Assistant">
         		 Add the Voice assistant to the pages you want to. If you want to enable it on all the pages, add it to common section.
         	```js
 
-        	<TextAssistant
+        	<VoiceAssistant
         		promptVariables={{ $NAME: "Sugar" }}
         		position={"botttm-center"}
-        	></TextAssistant>
+        	></VoiceAssistant>
         		```
         				This will show a mic button on the bottom center of the page. Test it out if you talk with it. This Assistant have no registered actions
         </TabItem>
 
-        	{ /* <TabItem label="Text Assistant">
+        	<TabItem label="Text Assistant">
 
            Add the Text assistant to the pages you want to. If you want to enable it on all the pages, add it to common section.
           ```js
@@ -118,7 +118,7 @@ Add Siri like Native AI Assistant to React Native App
           ></TextAssistant>
             ```
                 This will show a Chat button on the bottom center of the page. Test it out if you talk with it. This Assistant have no registered actions
-          </TabItem> */}
+          </TabItem>
 
     </Tabs>
 
