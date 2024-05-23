@@ -56,10 +56,8 @@ Add Siri like Native AI Assistants to React App
 4.  #### Add to your main file `src/App.tsx`
 
     ```jsx
+    import {useCopilot, CopilotProvider, CopilotConfigType} from '@sugar-ai/core';
     import {
-      useCopilot,
-      CopilotConfigType,
-      CopilotProvider,
       VoiceAssistant,
       TextAssistant,
     } from "@sugar-ai/copilot-one-js";
@@ -127,7 +125,11 @@ Add Siri like Native AI Assistants to React App
     To invoke actions by AI Assistant, register methods using `registerAction` with its name, definition and callback.
 
     ```js
+    import { useCopilot } from "@sugar-ai/core";
+
     const TodoApp = () => {
+
+    const { registerAction } = useCopilot(); // Add
 
     ...
 
@@ -174,10 +176,11 @@ Add Siri like Native AI Assistants to React App
     `useStateEmbedding`
 
     ```js
+    import { useCopilot } from "@sugar-ai/core";
 
     const TodoApp = () => {
 
-    const { useStateEmbedding, registerAction, unregisterAction } = useCopilot(); // Add
+    const { useStateEmbedding } = useCopilot(); // Add
     const scope = {scope1: "todoApp", scope2:  "todos"}
 
     // const [todos, setTodos] = useState([]);

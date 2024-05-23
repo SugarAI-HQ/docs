@@ -19,6 +19,94 @@ Add Siri like Native AI Assistant to React Native App
     - An existing React application
     - Sugar AI [Account](https://play.sugarcaneai.dev) or [Self Hosted](https://github.com/SugarAI-HQ/CopilotOne/)
 
+    Add Package Dependencies
+
+    <Tabs>
+
+    <TabItem label="npm">
+      ```bash
+
+      npm install react-native-svg
+
+      # These just for VoiceAssistant
+      npm install @react-native-voice/voice
+      npm install react-native-tts
+      ```
+
+      </TabItem>
+
+      <TabItem label="yarn">
+
+        ```bash
+        yarn add react-native-svg
+
+        # These just for VoiceAssistant
+        yarn add @react-native-voice/voice
+        yarn add react-native-tts
+        ```
+
+      </TabItem>
+
+      <TabItem label="pnpm">
+        ```bash
+        pnpm add react-native-svg
+
+        # These just for VoiceAssistant
+        pnpm add @react-native-voice/voice
+        pnpm add react-native-tts
+        ```
+      </TabItem>
+
+    </Tabs>
+
+
+     Add Persmissions for VoiceAssistant
+    <Tabs>
+
+    <TabItem label="Android">
+      ```bash
+      # in AndroidManifest.xml
+
+      <uses-permission android:name="android.permission.RECORD_AUDIO" />
+      <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+      <queries>
+        <package android:name="com.google.android.googlequicksearchbox"/>
+        <intent>
+          <action android:name="android.intent.action.VIEW"/>
+          <category android:name="android.intent.category.BROWSABLE"/>
+          <data android:scheme="https"/>
+        </intent>
+        <intent>
+          <action android:name="android.speech.RecognitionService" />
+        </intent>
+        <intent>
+          <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+      </queries>
+      ```
+
+      </TabItem>
+
+      <TabItem label="IOS">
+
+        ```bash
+          # in Info.plist
+
+          <dict>
+            ...
+            <key>NSMicrophoneUsageDescription</key>
+            <string>Description of why you require the use of the microphone</string>
+            <key>NSSpeechRecognitionUsageDescription</key>
+            <string>Description of why you require the use of the speech recognition</string>
+            ...
+          </dict>
+        ```
+
+      </TabItem>
+
+    </Tabs>
+
+
 2.  #### Install Pacakge
 
     Install the latest package in you react project
@@ -27,7 +115,7 @@ Add Siri like Native AI Assistant to React Native App
 
     <TabItem label="npm">
       ```bash
-      npm install @sugar-ai/copilot-one-js@latest
+      npm install @sugar-ai/copilot-one-rn@latest
       ```
 
       </TabItem>
@@ -35,14 +123,14 @@ Add Siri like Native AI Assistant to React Native App
       <TabItem label="yarn">
 
         ```bash
-        yarn add @sugar-ai/copilot-one-js@latest
+        yarn add @sugar-ai/copilot-one-rn@latest
         ```
 
       </TabItem>
 
       <TabItem label="pnpm">
         ```bash
-        pnpm add @sugar-ai/copilot-one-js@latest
+        pnpm add @sugar-ai/copilot-one-rn@latest
         ```
       </TabItem>
 
@@ -57,12 +145,8 @@ Add Siri like Native AI Assistant to React Native App
 4.  #### Add to your main file `src/App.tsx`
 
     ```jsx
-    import {
-      useCopilot,
-      CopilotConfigType,
-      CopilotProvider,
-      TextAssistant,
-    } from "@sugar-ai/copilot-one-js";
+    import { useCopilot, CopilotProvider, CopilotConfigType } from '@sugar-ai/core';
+    import { TextAssistant, VoiceAssistant } from "@sugar-ai/copilot-one-rn";
 
     const copilotConfig: CopilotConfigType = {
       copilotId: "<copilotId>",
@@ -127,6 +211,8 @@ Add Siri like Native AI Assistant to React Native App
     To invoke actions by AI Assistant, register methods using `registerAction` with its name, definition and callback.
 
     ```js
+    import {useCopilot} from '@sugar-ai/core';
+    const { registerAction } = useCopilot(); // Add
     const TodoApp = () => {
 
     ...
@@ -174,10 +260,11 @@ Add Siri like Native AI Assistant to React Native App
     `useStateEmbedding`
 
     ```js
+    import {useCopilot} from '@sugar-ai/core';
 
     const TodoApp = () => {
 
-    const { useStateEmbedding, registerAction, unregisterAction } = useCopilot(); // Add
+    const { useStateEmbedding } = useCopilot(); // Add
     const scope = {scope1: "todoApp", scope2:  "todos"}
 
     // const [todos, setTodos] = useState([]);
