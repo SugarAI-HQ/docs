@@ -1,0 +1,80 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+import { Image } from "astro:assets";
+import JoinWaitlist from "@/layouts/SingupForm";
+import DynamicIcon from "@/helpers/DynamicIcon";
+import Tabs from "../tabs";
+const { banner } = Astro.props;
+---
+
+<!-- Banner -->
+<section class="section pt-14">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="mb-16 text-center lg:col-9">
+          <h1 set:html={markdownify(banner.title)} class="mb-4" />
+          <h4 set:html={markdownify(banner.content)} class="p-4 mb-8" />
+
+            {
+              banner.button.enable && (
+              
+                <a class="btn btn-primary relative" href={banner.button.link}>
+                  
+                  {banner.button.label}
+                  {true &&
+                    (<div class="absolute top-4 left-2  w-2 h-2 rounded-full bg-gray-600 animate-ping"></div>
+                    <div class="absolute top-4 left-2 w-2 h-2 rounded-full bg-gray-600"></div>)
+                  }
+                </a>
+                
+
+                    
+              )
+            }
+            {
+              banner.button2.enable && (
+                <a class="btn btn-primary ml-2" href={banner.button2.link}>
+                  {banner.button2.label}
+                </a>
+              )
+            }
+            {              
+              <a
+                aria-label={'star'}
+                href={'https://github.com/sugarcane-ai/sugarcane-ai'}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                class="btn btn-primary ml-2 items-center inline-flex"
+              >
+              <!-- <DynamicIcon className="mr-2" width="8px" height="8px" icon={'AiOutlineStar'} /> -->
+                <span class="">{"Github"}</span>
+              </a>
+            }
+            {
+              banner.waitlist && banner.waitlist.enable && (
+                <JoinWaitlist client:load></JoinWaitlist>)
+            }
+            
+            
+
+        </div>
+        <Tabs client:load tabs={banner.tabs}></Tabs>
+        {
+          banner.image && (
+            <div class="col-12">
+              <Image
+                class="xl:ml-10 2xl:ml-10"
+                src={banner.image}
+                height={380}
+                width={1200}
+                alt="banner image"
+                format="webp"
+              />
+            </div>
+          )
+        }
+        
+      </div>
+    </div>
+</section>
+<!-- /Banner -->

@@ -1,0 +1,19 @@
+{
+  "main": [
+    {
+      "name": "discord",
+      "icon": "FaDiscord",
+      "link": "https://discord.gg/7Fe4GXQjRQ"
+    },
+    {
+      "name": "github",
+      "icon": "FaGithub",
+      "link": "https://github.com/sugarcane-ai/sugarcane-ai"
+    },
+    {
+      "name": "linkedin",
+      "icon": "FaLinkedin",
+      "link": "https://www.linkedin.com/company/99978636"
+    }
+  ]
+}

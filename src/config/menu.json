@@ -1,0 +1,31 @@
+{
+  "main": [
+    {
+      "name": "Docs",
+      "url": "/docs/"
+    },
+    {
+      "name": "Blog",
+      "url": "/blog/"
+    },
+    {
+      "name": "Demo",
+      "url": "https://play.sugarcaneai.dev/university"
+    },
+    {
+      "name": "Promptathon 1.0",
+      "url": "https://chat.whatsapp.com/KNox6QtDgKt8mY5AWb6mxJ",
+      "highlight": true
+    }
+  ],
+  "footer": [
+    {
+      "name": "Privacy",
+      "url": "/privacy-policy/"
+    },
+    {
+      "name": "Terms",
+      "url": "/terms/"
+    }
+  ]
+}

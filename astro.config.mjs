@@ -11,6 +11,14 @@ const site = "https://docs.sugarai.dev/";
 // https://astro.build/config
 export default defineConfig({
   site: "http://docs.sugarai.dev",
+  vite: {
+    optimizeDeps: {
+      include: ["react"],
+    },
+    // ssr: {
+    //   noExternal: [],
+    // },
+  },
   integrations: [
     starlight({
       title: "Sugar AI Docs",

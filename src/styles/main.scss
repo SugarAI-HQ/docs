@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @import "base";
+  @import "sticky";
+}
+
+@layer components {
+  @import "components";
+  @import "navigation";
+  @import "buttons";
+  @import "card";
+}
+
+@layer utilities {
+  @import "utilities";
+}
